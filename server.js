@@ -13,7 +13,7 @@ const PORT = 4040;
 
 app.use(cors());
 app.use(express.json()); //midlleware 
-app.use(express.static(path.join(__dirname, '..', 'frontend')));
+app.use(express.static(path.join(__dirname, '..', 'front-currency')));
 
 app.use('/currencies', currencyRoutes);
 
