@@ -20,3 +20,4 @@ app.use('/currencies', currencyRoutes);
 app.use(supaRoutes)
 
 app.listen(PORT, () => console.log(`Server is running in http://localhost:${PORT}`));
+//teste
