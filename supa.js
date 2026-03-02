@@ -42,7 +42,7 @@ router.post('/send-value', async (req,res) => {
             ars_value: arsSubmit, 
             brl_value: ptlSubmit, 
             ars_currency: arsCurrency,
-            purchase_category: categorry,
+            purchase_category: category,
         }
         ]).select();
 
