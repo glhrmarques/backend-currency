@@ -38,8 +38,12 @@ router.post('/send-value', async (req,res) => {
 
     try {
 
-        const { data, error } = await supabase.from('customer_purchases').insert([
-            {ars_value: arsSubmit, brl_value: ptlSubmit, ars_currency: arsCurrency}
+        const { data, error } = await supabase.from('customer_purchases').insert([{
+            ars_value: arsSubmit, 
+            brl_value: ptlSubmit, 
+            ars_currency: arsCurrency,
+            purchase_category: categorry,
+        }
         ]).select();
 
         if (error) {
