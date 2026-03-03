@@ -69,7 +69,7 @@ router.get('/registers', async (req,res) => {
             .limit(3);
 
         if(error){
-            console.error(err)
+            console.error(error)
             res.status(500).json({error: err.message})
         }
 
