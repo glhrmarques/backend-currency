@@ -59,4 +59,26 @@ router.post('/send-value', async (req,res) => {
     }
 });
 
+router.get('/registers', async (req,res) => {
+
+    try {
+        const {data, error} = await supabase
+            .from('customer_purchases')
+            .select('*')
+            .order('created_at', {ascending: false})
+            .limit(3);
+
+        if(error){
+            console.error(err)
+            res.status(500).json({error: err.message})
+        }
+
+        res.json(data)
+
+    } catch(err) {
+        console.error(err)
+        res.status(500).json({error: err.message})
+    }
+})
+
 export default router;
