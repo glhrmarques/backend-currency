@@ -34,7 +34,7 @@ const router = Router();
 
 router.post('/send-value', async (req,res) => {
     
-    const { arsSubmit, ptlSubmit, arsCurrency } = req.body; 
+    const { arsSubmit, ptlSubmit, arsCurrency, category } = req.body; 
 
     try {
 
@@ -43,8 +43,7 @@ router.post('/send-value', async (req,res) => {
             brl_value: ptlSubmit, 
             ars_currency: arsCurrency,
             purchase_category: category,
-        }
-        ]).select();
+        }]).select();
 
         if (error) {
             res.status(500).json({error: error.message});
@@ -55,7 +54,8 @@ router.post('/send-value', async (req,res) => {
         res.json(data)
 
     } catch (err) {
-        console.error(err)
+        console.error(err);
+        res.status(500).json({ error: err.message });
     }
 });
 
