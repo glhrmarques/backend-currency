@@ -64,7 +64,7 @@ router.get('/registers', async (req,res) => {
     try {
 
         const limit = parseInt(req.query.limit) || 10;
-        const offset = parseInt(requ.query.offset) || 0;
+        const offset = parseInt(req.query.offset) || 0;
 
 
         const {data, error} = await supabase
