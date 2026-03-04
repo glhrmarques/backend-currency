@@ -66,7 +66,6 @@ router.get('/registers', async (req,res) => {
             .from('customer_purchases')
             .select('*')
             .order('created_at', {ascending: false})
-            .limit(3);
 
         if(error){
             console.error(error)
