@@ -62,10 +62,16 @@ router.post('/send-value', async (req,res) => {
 router.get('/registers', async (req,res) => {
 
     try {
+
+        const limit = parseInt(req.query.limit) || 10;
+        const offset = parseInt(requ.query.offset) || 0;
+
+
         const {data, error} = await supabase
             .from('customer_purchases')
             .select('*')
             .order('created_at', {ascending: false})
+            .range(offset, offset + limit - 1);
 
         if(error){
             console.error(error)
