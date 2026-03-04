@@ -75,7 +75,7 @@ router.get('/registers', async (req,res) => {
 
         if(error){
             console.error(error)
-            res.status(500).json({error: err.message})
+            res.status(500).json({error: error.message})
         }
 
         res.json(data)
